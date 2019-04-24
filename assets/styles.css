@@ -69,3 +69,11 @@ section.cookies{
     height: 60px;
   }
 }
+.logout{
+    background-color: #eea236;
+    border-radius: 5px;
+}
+.logout:hover{
+    background: grey;
+    border: 1px solid #eea236;
+}

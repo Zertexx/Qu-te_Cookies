@@ -1,4 +1,21 @@
 <?php require 'inc/head.php'; ?>
+<?php
+
+if(empty($_SESSION['login'])){
+    header('Location: login.php');
+}
+
+if (isset($_GET['add_to_cart'])) {
+    if (!isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = array();
+    }
+    if (!isset($_SESSION['cart'][$_GET['add_to_cart']])) {
+        $_SESSION['cart'][$_GET['add_to_cart']] = 1;
+    } else {
+        $_SESSION['cart'][$_GET['add_to_cart']] += 1;
+    }
+}
+?>
 <section class="cookies container-fluid">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
@@ -51,4 +68,5 @@
     </div>
   </div>
 </section>
+
 <?php require 'inc/foot.php'; ?>
